@@ -1,4 +1,6 @@
-﻿namespace OSW.Common.Utilities.Extensions
+﻿using System.Collections;
+
+namespace OSW.Common.Utilities.Extensions
 {
     using System;
     using System.Collections.Generic;
