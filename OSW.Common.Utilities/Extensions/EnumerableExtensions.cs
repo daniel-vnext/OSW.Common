@@ -50,6 +50,11 @@
             return collection ?? Enumerable.Empty<T>();
         }
 
+        public static IEnumerable NullSafe(this IEnumerable collection)
+        {
+            return (collection as IEnumerable<object>).NullSafe();
+        }
+
         public static bool Contain<T>(this FluentWrapper<IEnumerable<T>> fluentWrapper, T item)
         {
             return fluentWrapper.Evaluate(x => x.Contains(item));
