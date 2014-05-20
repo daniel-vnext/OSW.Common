@@ -97,5 +97,15 @@
 
             return item.Evaluate(predicate);
         }
+
+        public static T? GuardHasValue<T>(this T? item, string parameterName) where T : struct
+        {
+            if (!item.HasValue)
+            {
+                throw new ArgumentNullException(parameterName);
+            }
+
+            return item;
+        }
     }
 }
