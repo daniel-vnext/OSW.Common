@@ -4,12 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using log4net;
-
     public static class StringExtensions
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(StringExtensions));
-
         public static string JoinWith<T>(this IEnumerable<T> values, string separator)
         {
             return string.Join(separator, values.NullSafe());
@@ -129,8 +125,6 @@
 
         public static string GetUniqueTermFor(this IEnumerable<string> current, string target, int maxLength = int.MaxValue, int numberOfAttempts = int.MaxValue)
         {
-            Log.DebugFormat("Getting unique term for {0}", target);
-
             var originalTarget = target;
             numberOfAttempts = numberOfAttempts - 1;
 

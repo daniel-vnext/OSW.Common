@@ -2,13 +2,10 @@
 {
     using System;
 
-    using log4net;
-
-    using OSW.Common.Utilities;
+    using Utilities;
 
     public static class NumericExtensions
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(NumericExtensions));
 
         private const int SignificantFigureToRoundTo = 1000;
 
@@ -28,8 +25,6 @@
             var lowerLimit = numberToRound - amountOverMidpoint;
 
             var rounded = lowerLimit + (amountOverMidpoint >= midpoint ? SignificantFigureToRoundTo : 0);
-
-            Log.DebugFormat("{0} rounded to {1}, using significant figure to round to {2}", numberToRound, rounded, SignificantFigureToRoundTo);
 
             return rounded.InvertIfNeedsBe(isNegative);
         }
